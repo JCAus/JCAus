@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet"
+        href="https://unpkg.com/bootstrap/dist/css/bootstrap.css">
+  <style>
+    .container{
+        margin: 20px;
+        padding: 20px;
+    }
+    
+    input{
+        margin: 10px;
+    }
+
+  </style>
+</head>
+
+<body>
+<div class="container">
+  <form id="movie-rating">
+    <label>Movie title:</label>
+    <input type="text">
+    <br>
+    <label>Rating:</label>
+    <input type="text">
+    <br>
+    <input type="button" class="submitBtn" value="Submit">
+  </form>
+</div>
+<div class="wall">
+    <ul></ul>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script>
+  // Add your code here!
+    $('.submitBtn').on('click', function(){
+        
+        const movie = $('input').eq(0).val();
+        const rating = $('input').eq(1).val();
+        const movieRating = movie + ": " + rating
+        
+        $('ul').append('<li>' + movieRating + "  " +'<input type="button" class="delete" value="X"/></li>');
+        
+    
+    });
+
+    $('li').on('submit', '.delete', function(){
+        $(this).parent.remove();})
+    
+
+
+   
+
+    
+</script>
+</body>
+
+</html>
